@@ -10,13 +10,15 @@ import utils.Config;
 
 @Entity
 @XmlRootElement
-public class UserPermission {
+public class ModuleDepartment {
 	@Id
 	private Long id;
 	@Index
-	private long permissionId;
+	private long moduleId = Config.DEFAULT_LONG;
 	@Index
-	private long userId;
+	private long departmentId = Config.DEFAULT_LONG;
+	@Index
+	private long employId = Config.DEFAULT_LONG;
 	@Index
 	private long createdDate;
 	@Index
@@ -24,17 +26,8 @@ public class UserPermission {
 	@Index
 	private long lastUpdated;
 	
-	public UserPermission() {
-	}
-
-	public UserPermission(Long id, long permissionId, long userId, long createdDate, long statusId, long lastUpdated) {
-		super();
-		this.id = id;
-		this.permissionId = permissionId;
-		this.userId = userId;
-		this.createdDate = createdDate;
-		this.statusId = statusId;
-		this.lastUpdated = lastUpdated;
+	public ModuleDepartment() {
+		
 	}
 
 	public Long getId() {
@@ -45,20 +38,28 @@ public class UserPermission {
 		this.id = id;
 	}
 
-	public long getPermissionId() {
-		return permissionId;
+	public long getModuleId() {
+		return moduleId;
 	}
 
-	public void setPermissionId(long permissionId) {
-		this.permissionId = permissionId;
+	public void setModuleId(long moduleId) {
+		this.moduleId = moduleId;
 	}
 
-	public long getUserId() {
-		return userId;
+	public long getDepartmentId() {
+		return departmentId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setDepartmentId(long departmentId) {
+		this.departmentId = departmentId;
+	}
+
+	public long getEmployId() {
+		return employId;
+	}
+
+	public void setEmployId(long employId) {
+		this.employId = employId;
 	}
 
 	public long getCreatedDate() {
@@ -84,7 +85,6 @@ public class UserPermission {
 	public void setLastUpdated(long lastUpdated) {
 		this.lastUpdated = lastUpdated;
 	}
-
-
-
+	
+	
 }

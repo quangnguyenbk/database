@@ -7,16 +7,14 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
 import utils.Config;
-
 @Entity
 @XmlRootElement
-public class UserPermission {
+public class Module {
 	@Id
 	private Long id;
 	@Index
-	private long permissionId;
-	@Index
-	private long userId;
+	private String name;
+	private String description;
 	@Index
 	private long createdDate;
 	@Index
@@ -24,14 +22,15 @@ public class UserPermission {
 	@Index
 	private long lastUpdated;
 	
-	public UserPermission() {
+	public Module() {
+		
 	}
 
-	public UserPermission(Long id, long permissionId, long userId, long createdDate, long statusId, long lastUpdated) {
+	public Module(Long id, String name, String description, long createdDate, long statusId, long lastUpdated) {
 		super();
 		this.id = id;
-		this.permissionId = permissionId;
-		this.userId = userId;
+		this.name = name;
+		this.description = description;
 		this.createdDate = createdDate;
 		this.statusId = statusId;
 		this.lastUpdated = lastUpdated;
@@ -45,20 +44,20 @@ public class UserPermission {
 		this.id = id;
 	}
 
-	public long getPermissionId() {
-		return permissionId;
+	public String getName() {
+		return name;
 	}
 
-	public void setPermissionId(long permissionId) {
-		this.permissionId = permissionId;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public long getUserId() {
-		return userId;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public long getCreatedDate() {
@@ -84,7 +83,6 @@ public class UserPermission {
 	public void setLastUpdated(long lastUpdated) {
 		this.lastUpdated = lastUpdated;
 	}
-
-
-
+	
+	
 }

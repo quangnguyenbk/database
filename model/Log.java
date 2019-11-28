@@ -16,6 +16,7 @@ public class Log {
 	String action;
 	@Index
 	String result;
+	String content;
 	@Index
 	int type;
 	@Index
@@ -33,6 +34,16 @@ public class Log {
 		this.result = result;
 		this.type = type;
 		this.dateCreated = dateCreated;
+	}
+
+	
+	public Log(long userId, String action, String result, String content, int type) {
+		super();
+		this.userId = userId;
+		this.action = action;
+		this.result = result;
+		this.content = content;
+		this.type = type;
 	}
 
 	public Long getId() {
@@ -81,6 +92,14 @@ public class Log {
 
 	public void setDateCreated(long dateCreated) {
 		this.dateCreated = dateCreated;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 	

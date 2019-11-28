@@ -4,48 +4,39 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
 
 import utils.Config;
 @Entity
 @XmlRootElement
 public class Permission {
+	public long getModuleId() {
+		return moduleId;
+	}
+	public void setModuleId(long moduleId) {
+		this.moduleId = moduleId;
+	}
 	@Id
 	private Long id;
 	@Index
-	private String name;
+	private String name = Config.STRING_EMPTY;
 	@Index
 	private String url = Config.STRING_EMPTY;
 	@Index
-	private long permissionType;
-	@Index
-	private long projectId;
-	@Index
-	private long departmentId;
-	@Index
+	private long moduleId = Config.DEFAULT_LONG;
 	private String description;
 	@Index
 	private long createdDate;
 	@Index
-	private long statusId;
+	private long statusId = Config.DEFAULT_ACTIVE;
 	@Index
 	private long lastUpdated;
+	
+	@Ignore
+	private long groupId = Config.DEFAULT_LONG;
 	public Permission() {
 		
-	}
-	public Permission(Long id, String name, String url, long permissionType, long projectId, long departmentId,
-			String description, long createdDate, long statusId, long lastUpdated) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.url = url;
-		this.permissionType = permissionType;
-		this.projectId = projectId;
-		this.departmentId = departmentId;
-		this.description = description;
-		this.createdDate = createdDate;
-		this.statusId = statusId;
-		this.lastUpdated = lastUpdated;
 	}
 	public Long getId() {
 		return id;
@@ -64,24 +55,6 @@ public class Permission {
 	}
 	public void setUrl(String url) {
 		this.url = url;
-	}
-	public long getPermissionType() {
-		return permissionType;
-	}
-	public void setPermissionType(long permissionType) {
-		this.permissionType = permissionType;
-	}
-	public long getProjectId() {
-		return projectId;
-	}
-	public void setProjectId(long projectId) {
-		this.projectId = projectId;
-	}
-	public long getDepartmentId() {
-		return departmentId;
-	}
-	public void setDepartmentId(long departmentId) {
-		this.departmentId = departmentId;
 	}
 	public String getDescription() {
 		return description;
@@ -106,6 +79,12 @@ public class Permission {
 	}
 	public void setLastUpdated(long lastUpdated) {
 		this.lastUpdated = lastUpdated;
+	}
+	public long getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(long groupId) {
+		this.groupId = groupId;
 	}
 	
 	
